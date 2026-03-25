@@ -1,0 +1,54 @@
+.fuel-price-page {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.fuel-price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.fuel-price-table th, .fuel-price-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.fuel-price-table th {
+    background-color: #f2f2f2;
+}
+
+.fuel-price-form {
+    margin: 20px 0;
+}
+
+.fuel-price-form input[type="text"], .fuel-price-form input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.fuel-price-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.fuel-price-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+    .fuel-price-page {
+        margin: 10px;
+    }
+    .fuel-price-table, .fuel-price-form {
+        font-size: 14px;
+    }
+}
