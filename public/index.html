@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Price Display</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fuel Prices</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fuel Type</th>
+                <th>Price (CZK/lt)</th>
+                <th>Effective Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HVO</td>
+                <td id="hvo-price">...</td>
+                <td id="hvo-date">...</td>
+            </tr>
+            <tr>
+                <td>PREMIUM_DIESEL</td>
+                <td id="premium-diesel-price">...</td>
+                <td id="premium-diesel-date">...</td>
+            </tr>
+            <tr>
+                <td>PREMIUM_GASOLINE</td>
+                <td id="premium-gasoline-price">...</td>
+                <td id="premium-gasoline-date">...</td>
+            </tr>
+            <tr>
+                <td>GASOLINE</td>
+                <td id="gasoline-price">...</td>
+                <td id="gasoline-date">...</td>
+            </tr>
+            <tr>
+                <td>DIESEL</td>
+                <td id="diesel-price">...</td>
+                <td id="diesel-date">...</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Add/Update Price</h2>
+    <form id="price-form">
+        <label for="fuel-type">Fuel Type:</label>
+        <select id="fuel-type" name="fuel-type">
+            <option value="HVO">HVO</option>
+            <option value="PREMIUM_DIESEL">PREMIUM_DIESEL</option>
+            <option value="PREMIUM_GASOLINE">PREMIUM_GASOLINE</option>
+            <option value="GASOLINE">GASOLINE</option>
+            <option value="DIESEL">DIESEL</option>
+        </select><br><br>
+        <label for="price">Price (CZK/lt):</label>
+        <input type="number" id="price" name="price" required><br><br>
+        <label for="effective-date">Effective Date:</label>
+        <input type="date" id="effective-date" name="effective-date" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('price-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fuelType = document.getElementById('fuel-type').value;
+            const price = document.getElementById('price').value;
+            const effectiveDate = document.getElementById('effective-date').value;
+            document.getElementById(fuelType.toLowerCase() + '-price').textContent = price;
+            document.getElementById(fuelType.toLowerCase() + '-date').textContent = effectiveDate;
+        });
+    </script>
+</body>
+</html>
